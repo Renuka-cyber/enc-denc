@@ -1,10 +1,8 @@
-// Constants for Argon2id
-export const ARGON2_PARAMS = {
-  memory: 65536, // 64 MB
-  iterations: 3,
-  parallelism: 4,
-  hashLen: 32, // 256 bits (32 bytes) for key derivation
-  type: 2, // Argon2id
+// Constants for PBKDF2
+export const PBKDF2_PARAMS = {
+  iterations: 600000, // High iteration count for security
+  hash: 'SHA-256',
+  keyLen: 32, // 256 bits (32 bytes) for key derivation
 };
 
 // Constants for AES-256-GCM

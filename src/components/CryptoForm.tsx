@@ -7,7 +7,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { Loader2, Lock, Unlock, FileText } from 'lucide-react';
 
 import { generateSalt, securityLog } from '@/utils/security';
-import { deriveKeyArgon2id } from '@/modules/KeyDerivation';
+import { deriveKeyPBKDF2 } from '@/modules/KeyDerivation';
 import { generateDataEncryptionKey, deriveMasterKey, wrapDataKey, unwrapDataKey } from '@/modules/KeyManagement';
 import { packageMetadata, parseMetadata, ParsedMetadata } from '@/modules/Metadata';
 import { encryptFileStream } from '@/modules/EncryptionStream';
@@ -57,9 +57,9 @@ export const CryptoForm = () => {
       const sp = generateSalt(); // Password Salt
       const se = generateSalt(); // Email Salt
 
-      // 2. Key Derivation (Argon2id)
-      const kp = await deriveKeyArgon2id(password, sp);
-      const ke = await deriveKeyArgon2id(receiverEmail, se);
+      // 2. Key Derivation (PBKDF2)
+      const kp = await deriveKeyPBKDF2(password, sp);
+      const ke = await deriveKeyPBKDF2(receiverEmail, se);
 
       // 3. Master Key Derivation (HKDF)
       const km = await deriveMasterKey(kp, ke);
@@ -118,12 +118,12 @@ export const CryptoForm = () => {
       const metadata: ParsedMetadata = await parseMetadata(file);
       const encryptedContentBlob = file.slice(metadata.headerLength);
 
-      // 2. Key Derivation (Argon2id)
+      // 2. Key Derivation (PBKDF2)
       const sp = metadata.sp;
       const se = metadata.se;
 
-      const kp = await deriveKeyArgon2id(password, sp);
-      const ke = await deriveKeyArgon2id(receiverEmail, se);
+      const kp = await deriveKeyPBKDF2(password, sp);
+      const ke = await deriveKeyPBKDF2(receiverEmail, se);
 
       // 3. Master Key Derivation (HKDF)
       const km = await deriveMasterKey(kp, ke);
