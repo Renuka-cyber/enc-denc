@@ -1,5 +1,7 @@
 import * as argon2 from 'argon2-browser';
 import { ARGON2_PARAMS, securityLog } from '@/utils/security';
+// Import the Wasm file URL explicitly for Vite compatibility
+import argon2WasmUrl from 'argon2-browser/dist/argon2.wasm?url';
 
 /**
  * Derives a 256-bit key using Argon2id.
@@ -25,7 +27,8 @@ export async function deriveKeyArgon2id(
     parallelism: ARGON2_PARAMS.parallelism,
     hashLen: ARGON2_PARAMS.hashLen,
     type: ARGON2_PARAMS.type,
-    // Note: distPath is often required by argon2-browser setup, assuming default path works here.
+    // Explicitly set the path to the Wasm file using the imported URL
+    distPath: argon2WasmUrl.substring(0, argon2WasmUrl.lastIndexOf('/')),
   });
 
   // The hash is the raw key material (ArrayBuffer)
