@@ -50,7 +50,7 @@ export async function deriveMasterKey(kp: CryptoKey, ke: CryptoKey): Promise<Cry
     hkdfKey,
     { name: 'AES-GCM', length: AES_KEY_LENGTH },
     false, // KM does not need to be extractable
-    ['wrapKey', 'unwrapKey'],
+    ['encrypt', 'decrypt'], // KM must be usable for AES-GCM encryption/decryption (wrapping/unwrapping DEK)
   );
 
   securityLog('Master Key derivation complete.');
