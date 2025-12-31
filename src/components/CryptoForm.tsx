@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
-import { Loader2, Lock, Unlock, FileText } from 'lucide-react';
+import { Loader2, Lock, Unlock, ShieldCheck } from 'lucide-react'; // Changed FileText to ShieldCheck
 
 import { generateSalt, securityLog } from '@/utils/security';
 import { deriveKeyPBKDF2 } from '@/modules/KeyDerivation';
@@ -186,12 +186,20 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
   }, [file, password, receiverEmail, toast]);
 
   const actionButton = mode === 'encrypt' ? (
-    <Button onClick={handleEncrypt} disabled={isLoading || !file} className="w-full">
+    <Button
+      onClick={handleEncrypt}
+      disabled={isLoading || !file}
+      className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground hover:from-primary/90 hover:to-accent/90 transition-all duration-300 ease-in-out shadow-lg"
+    >
       {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Lock className="mr-2 h-4 w-4" />}
       Encrypt File
     </Button>
   ) : (
-    <Button onClick={handleDecrypt} disabled={isLoading || !file} className="w-full">
+    <Button
+      onClick={handleDecrypt}
+      disabled={isLoading || !file}
+      className="w-full bg-gradient-to-r from-secondary to-accent text-secondary-foreground hover:from-secondary/90 hover:to-accent/90 transition-all duration-300 ease-in-out shadow-lg"
+    >
       {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Unlock className="mr-2 h-4 w-4" />}
       Decrypt File
     </Button>
@@ -200,39 +208,41 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
   const title = mode === 'encrypt' ? 'Secure File Encryption' : 'Secure File Decryption';
 
   return (
-    <Card className="w-full max-w-lg mx-auto shadow-xl">
-      <CardHeader>
-        <CardTitle className="flex items-center">
-          <FileText className="mr-2 h-6 w-6 text-primary" />
+    <Card className="w-full mx-auto shadow-xl rounded-xl border-border/50 dark:border-border/30">
+      <CardHeader className="pb-4">
+        <CardTitle className="flex items-center text-primary dark:text-primary-foreground">
+          <ShieldCheck className="mr-3 h-7 w-7 text-secondary dark:text-accent" /> {/* Cybersecurity shield icon */}
           {title}
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-2">
-          <Label htmlFor="file">File Input / Upload</Label>
-          <Input id="file" type="file" onChange={handleFileChange} />
+          <Label htmlFor="file" className="text-foreground">File Input / Upload</Label>
+          <Input id="file" type="file" onChange={handleFileChange} className="file:text-primary file:font-medium file:bg-muted file:border-muted-foreground/20 file:rounded-md file:mr-2 file:py-1 file:px-3 hover:file:bg-muted-foreground/10 transition-colors" />
           {file && <p className="text-sm text-muted-foreground">Selected: {file.name} ({Math.round(file.size / 1024 / 1024)} MB)</p>}
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="password">Password Input</Label>
+          <Label htmlFor="password" className="text-foreground">Password Input</Label>
           <Input
             id="password"
             type="password"
             placeholder={`Enter strong password (min ${MIN_PASSWORD_LENGTH} chars)`}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="focus-visible:ring-ring focus-visible:ring-offset-2"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="email">Receiver Email ID (Access Control)</Label>
+          <Label htmlFor="email" className="text-foreground">Receiver Email ID (Access Control)</Label>
           <Input
             id="email"
             type="email"
             placeholder="receiver@example.com"
             value={receiverEmail}
             onChange={(e) => setReceiverEmail(e.target.value)}
+            className="focus-visible:ring-ring focus-visible:ring-offset-2"
           />
           <p className="text-xs text-muted-foreground">
             Both the password and this email are required for decryption.
