@@ -2,6 +2,7 @@ import { MadeWithDyad } from "@/components/made-with-dyad";
 import { CryptoForm } from "@/components/CryptoForm";
 import { Card, CardContent, CardDescription } from "@/components/ui/card";
 import { AlertTriangle } from "lucide-react";
+import { SteganographyTool } from "@/components/SteganographyTool"; // Import the new component
 
 const Index = () => {
   return (
@@ -19,7 +20,7 @@ const Index = () => {
         </CardContent>
       </Card>
 
-      <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl">
+      <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl mb-8">
         <div className="flex-1">
           <CryptoForm defaultMode="encrypt" />
         </div>
@@ -27,6 +28,15 @@ const Index = () => {
           <CryptoForm defaultMode="decrypt" />
         </div>
       </div>
+
+      {/* New Steganography Tool Section */}
+      <h2 className="text-2xl font-bold mb-6 text-center">
+        Image Steganography Tool (LSB)
+      </h2>
+      <div className="w-full max-w-lg mb-8">
+        <SteganographyTool />
+      </div>
+
       <div className="mt-8">
         <MadeWithDyad />
       </div>
