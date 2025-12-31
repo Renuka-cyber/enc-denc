@@ -9,10 +9,10 @@ const Index = () => {
       </h1>
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl">
         <div className="flex-1">
-          <CryptoForm defaultMode="decrypt" />
+          <CryptoForm defaultMode="encrypt" />
         </div>
         <div className="flex-1">
-          <CryptoForm defaultMode="encrypt" />
+          <CryptoForm defaultMode="decrypt" />
         </div>
       </div>
       <div className="mt-8">
