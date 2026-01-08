@@ -15,19 +15,19 @@ const Index = () => {
       </p>
 
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl justify-center items-stretch">
-        <Button asChild className="flex-1 max-w-xs h-auto py-4 text-lg bg-gradient-to-r from-blue-300 to-blue-500 text-white hover:from-blue-400 hover:to-blue-600 transition-all duration-300 ease-in-out shadow-lg">
+        <Button asChild className="flex-1 max-w-xs h-auto py-4 text-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:from-blue-600 hover:to-blue-800 transition-all duration-300 ease-in-out shadow-lg">
           <Link to="/encrypt" className="flex items-center justify-center">
             <Lock className="mr-3 h-6 w-6" />
             Encrypt Files
           </Link>
         </Button>
-        <Button asChild className="flex-1 max-w-xs h-auto py-4 text-lg bg-gradient-to-r from-teal-200 to-cyan-400 text-white hover:from-teal-300 hover:to-cyan-500 transition-all duration-300 ease-in-out shadow-lg">
+        <Button asChild variant="outline" className="flex-1 max-w-xs h-auto py-4 text-lg border-blue-500 text-blue-700 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-950 transition-all duration-300 ease-in-out shadow-sm">
           <Link to="/decrypt" className="flex items-center justify-center">
             <Unlock className="mr-3 h-6 w-6" />
             Decrypt Files
           </Link>
         </Button>
-        <Button asChild className="flex-1 max-w-xs h-auto py-4 text-lg bg-gradient-to-r from-purple-300 to-pink-300 text-white hover:from-purple-400 hover:to-pink-400 transition-all duration-300 ease-in-out shadow-lg">
+        <Button asChild variant="outline" className="flex-1 max-w-xs h-auto py-4 text-lg border-blue-500 text-blue-700 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-950 transition-all duration-300 ease-in-out shadow-sm">
           <Link to="/steganography" className="flex items-center justify-center">
             <ImageIcon className="mr-3 h-6 w-6" />
             Steganography
