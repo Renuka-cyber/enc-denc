@@ -15,7 +15,7 @@ const Index = () => {
       </p>
 
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl justify-center items-stretch">
-        <Button asChild className="flex-1 max-w-xs h-auto py-4 text-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:from-blue-600 hover:to-blue-800 transition-all duration-300 ease-in-out shadow-lg">
+        <Button asChild className="flex-1 max-w-xs h-auto py-4 text-lg border-blue-500 text-blue-700 bg-blue-100 hover:bg-blue-200 dark:border-blue-400 dark:text-blue-400 dark:bg-blue-900 dark:hover:bg-blue-800 transition-all duration-300 ease-in-out shadow-sm">
           <Link to="/encrypt" className="flex items-center justify-center">
             <Lock className="mr-3 h-6 w-6" />
             Encrypt Files
