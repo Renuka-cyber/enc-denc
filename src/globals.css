@@ -4,16 +4,16 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%; /* Very light grey */
-    --foreground: 220 30% 20%; /* Dark navy */
+    --background: 220 14% 97%; /* Light grey #f5f6f8 */
+    --foreground: 220 10% 10%; /* Very dark grey/black */
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 30% 20%; /* Dark navy */
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 220 10% 10%; /* Very dark grey/black */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 30% 20%; /* Dark navy */
+    --popover-foreground: 220 10% 10%; /* Very dark grey/black */
 
-    --primary: 220 30% 20%; /* Dark navy blue */
+    --primary: 220 50% 20%; /* Dark blue */
     --primary-foreground: 0 0% 98%; /* Off-white */
 
     --secondary: 180 50% 40%; /* Teal */
@@ -22,15 +22,15 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 200 70% 70%; /* Light blue */
-    --accent-foreground: 220 30% 20%; /* Dark navy */
+    --accent: 200 80% 60%; /* Brighter blue */
+    --accent-foreground: 220 10% 10%; /* Very dark grey/black */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 220 30% 20%; /* Dark navy for focus glow */
+    --ring: 220 50% 20%; /* Dark blue for focus glow */
 
     --radius: 0.75rem; /* Slightly more rounded corners */
 
@@ -48,20 +48,20 @@
   }
 
   .dark {
-    --background: 220 30% 10%; /* Very dark navy */
+    --background: 220 15% 10%; /* Dark grey */
     --foreground: 0 0% 98%; /* Off-white */
 
-    --card: 220 30% 15%; /* Slightly lighter dark navy */
+    --card: 220 15% 15%; /* Slightly lighter dark grey */
     --card-foreground: 0 0% 98%; /* Off-white */
 
     --popover: 220 30% 15%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 0% 98%; /* Off-white */
-    --primary-foreground: 220 30% 20%; /* Dark navy */
+    --primary: 220 50% 20%; /* Dark blue */
+    --primary-foreground: 0 0% 98%; /* Off-white */
 
     --secondary: 180 50% 60%; /* Lighter teal for dark mode */
-    --secondary-foreground: 220 30% 20%; /* Dark navy */
+    --secondary-foreground: 220 10% 10%; /* Very dark grey/black */
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
