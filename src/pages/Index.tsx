@@ -21,13 +21,13 @@ const Index = () => {
             Encrypt Files
           </Link>
         </Button>
-        <Button asChild variant="outline" className="flex-1 max-w-xs h-auto py-4 text-lg border-blue-500 text-blue-700 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-950 transition-all duration-300 ease-in-out shadow-sm">
+        <Button asChild className="flex-1 max-w-xs h-auto py-4 text-lg border-blue-500 text-blue-700 bg-blue-100 hover:bg-blue-200 dark:border-blue-400 dark:text-blue-400 dark:bg-blue-900 dark:hover:bg-blue-800 transition-all duration-300 ease-in-out shadow-sm">
           <Link to="/decrypt" className="flex items-center justify-center">
             <Unlock className="mr-3 h-6 w-6" />
             Decrypt Files
           </Link>
         </Button>
-        <Button asChild variant="outline" className="flex-1 max-w-xs h-auto py-4 text-lg border-blue-500 text-blue-700 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-950 transition-all duration-300 ease-in-out shadow-sm">
+        <Button asChild className="flex-1 max-w-xs h-auto py-4 text-lg border-blue-500 text-blue-700 bg-blue-100 hover:bg-blue-200 dark:border-blue-400 dark:text-blue-400 dark:bg-blue-900 dark:hover:bg-blue-800 transition-all duration-300 ease-in-out shadow-sm">
           <Link to="/steganography" className="flex items-center justify-center">
             <ImageIcon className="mr-3 h-6 w-6" />
             Steganography
