@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
 import { Loader2, Lock, Unlock, ShieldCheck } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom'; // Import useNavigate and useLocation
 
 import { generateSalt, securityLog } from '@/utils/security';
 import { deriveKeyPBKDF2 } from '@/modules/KeyDerivation';
@@ -25,6 +26,8 @@ interface CryptoFormProps {
 
 export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
   const { toast } = useToast();
+  const navigate = useNavigate(); // Initialize useNavigate
+  const location = useLocation(); // Initialize useLocation
   const [mode, setMode] = useState<Mode>(defaultMode);
   const [file, setFile] = useState<File | null>(null);
   const [password, setPassword] = useState('');
@@ -51,15 +54,30 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0] || null;
     setFile(selectedFile);
+
     if (selectedFile) {
-      // Automatically switch mode based on file extension if defaultMode is not explicitly set
-      // or if the user selects a file that clearly indicates a different mode.
-      if (defaultMode === 'encrypt' && selectedFile.name.endsWith(ENCRYPTED_FILE_EXTENSION)) {
-        setMode('decrypt');
-      } else if (defaultMode === 'decrypt' && !selectedFile.name.endsWith(ENCRYPTED_FILE_EXTENSION)) {
-        setMode('encrypt');
+      let newMode: Mode;
+      let newPath: string;
+
+      if (selectedFile.name.endsWith(ENCRYPTED_FILE_EXTENSION)) {
+        newMode = 'decrypt';
+        newPath = '/decrypt';
       } else {
-        setMode(defaultMode); // Revert to default mode if no clear indication from file
+        newMode = 'encrypt';
+        newPath = '/encrypt';
+      }
+
+      // Only navigate if the new path is different from the current one
+      if (location.pathname !== newPath) {
+        navigate(newPath);
+      }
+      setMode(newMode); // Update internal state
+    } else {
+      // If no file is selected (e.g., user clears input), revert to defaultMode and navigate if needed
+      setMode(defaultMode);
+      const defaultPath = defaultMode === 'encrypt' ? '/encrypt' : '/decrypt';
+      if (location.pathname !== defaultPath) {
+        navigate(defaultPath);
       }
     }
   };
