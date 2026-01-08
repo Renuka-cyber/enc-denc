@@ -7,11 +7,12 @@ import { Lock, Unlock, Image as ImageIcon } from "lucide-react";
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 p-4 sm:p-8">
-      <h1 className="text-4xl md:text-5xl font-extrabold mb-8 text-center text-primary dark:text-primary-foreground leading-tight">
-        Welcome to Enc-Denc: Secure File & Image Tools
+      <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-center text-primary dark:text-primary-foreground leading-tight">
+        Enc-Denc
       </h1>
-
-      {/* Removed the 'Important' notice card */}
+      <p className="text-xl md:text-2xl text-muted-foreground mb-12 text-center max-w-2xl">
+        Secure File Encryption & Image Steganography
+      </p>
 
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl justify-center">
         <Button asChild className="flex-1 max-w-xs h-auto py-4 text-lg bg-gradient-to-r from-primary to-accent text-primary-foreground hover:from-primary/90 hover:to-accent/90 transition-all duration-300 ease-in-out shadow-lg">
