@@ -20,13 +20,13 @@ const Header = () => {
         <Button asChild variant={location.pathname === '/encrypt' ? 'default' : 'ghost'}>
           <Link to="/encrypt" className="flex items-center">
             <Lock className="mr-2 h-4 w-4" />
-            Encrypt
+            Encryption
           </Link>
         </Button>
         <Button asChild variant={location.pathname === '/decrypt' ? 'default' : 'ghost'}>
           <Link to="/decrypt" className="flex items-center">
             <Unlock className="mr-2 h-4 w-4" />
-            Decrypt
+            Decryption
           </Link>
         </Button>
         <Button asChild variant={location.pathname === '/steganography' ? 'default' : 'ghost'}>

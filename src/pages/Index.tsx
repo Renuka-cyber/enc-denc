@@ -14,7 +14,7 @@ const Index = () => {
         Secure File Encryption & Image Steganography
       </p>
 
-      <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl justify-center">
+      <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl justify-center items-stretch">
         <Button asChild className="flex-1 max-w-xs h-auto py-4 text-lg bg-gradient-to-r from-primary to-accent text-primary-foreground hover:from-primary/90 hover:to-accent/90 transition-all duration-300 ease-in-out shadow-lg">
           <Link to="/encrypt" className="flex items-center justify-center">
             <Lock className="mr-3 h-6 w-6" />
