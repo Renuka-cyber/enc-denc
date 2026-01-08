@@ -205,7 +205,7 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
     </Button>
   );
 
-  const title = mode === 'encrypt' ? 'Secure File Encryption' : 'Secure File Decryption';
+  const title = mode === 'encrypt' ? 'Encrypt a File' : 'Decrypt a File';
 
   return (
     <Card className="w-full mx-auto shadow-xl rounded-xl border-border/50 dark:border-border/30">
