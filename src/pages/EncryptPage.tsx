@@ -8,12 +8,9 @@ import { AlertTriangle } from "lucide-react";
 const EncryptPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 p-4 sm:p-8">
-      <h1 className="text-4xl md:text-5xl font-extrabold mb-2 text-center text-primary dark:text-primary-foreground leading-tight">
-        File Encryption
-      </h1>
-      <p className="text-lg text-muted-foreground mb-8 text-center max-w-2xl">
+      <h1 className="text-4xl md:text-5xl font-extrabold mb-8 text-center text-primary dark:text-primary-foreground leading-tight">
         Argon2id + AES-256-GCM Hybrid Encryption System
-      </p>
+      </h1>
 
       <Card className="w-full max-w-4xl mb-10 bg-warning border-warning-foreground/20 text-warning-foreground shadow-lg rounded-xl">
         <CardContent className="p-4 flex items-center space-x-3">
