@@ -35,6 +35,19 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
     setMode(defaultMode);
   }, [defaultMode]);
 
+  const getMissingInputsMessage = () => {
+    const missing: string[] = [];
+    if (!file) missing.push('File');
+    if (!password) missing.push('Password');
+    if (!receiverEmail) missing.push('Receiver Email');
+
+    if (missing.length === 0) return '';
+    if (missing.length === 1) return `Missing: ${missing[0]}.`;
+    
+    const last = missing.pop();
+    return `Missing: ${missing.join(', ')} and ${last}.`;
+  };
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0] || null;
     setFile(selectedFile);
@@ -52,10 +65,11 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
   };
 
   const handleEncrypt = useCallback(async () => {
-    if (!file || !password || !receiverEmail) {
+    const missingMessage = getMissingInputsMessage();
+    if (missingMessage) {
       toast({
         title: 'Missing Inputs',
-        description: 'Missing: File, Password, Receiver Email.',
+        description: missingMessage,
         variant: 'destructive',
       });
       return;
@@ -119,13 +133,14 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
     } finally {
       setIsLoading(false);
     }
-  }, [file, password, receiverEmail, toast]);
+  }, [file, password, receiverEmail, toast, getMissingInputsMessage]);
 
   const handleDecrypt = useCallback(async () => {
-    if (!file || !password || !receiverEmail) {
+    const missingMessage = getMissingInputsMessage();
+    if (missingMessage) {
       toast({
         title: 'Missing Inputs',
-        description: 'Missing: Encrypted File, Password, Receiver Email.',
+        description: missingMessage,
         variant: 'destructive',
       });
       return;
@@ -183,7 +198,7 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
     } finally {
       setIsLoading(false);
     }
-  }, [file, password, receiverEmail, toast]);
+  }, [file, password, receiverEmail, toast, getMissingInputsMessage]);
 
   const actionButton = mode === 'encrypt' ? (
     <Button
