@@ -8,7 +8,7 @@ import NotFound from "./pages/NotFound";
 import SteganographyPage from "./pages/SteganographyPage";
 import EncryptPage from "./pages/EncryptPage"; // Import the new EncryptPage
 import DecryptPage from "./pages/DecryptPage"; // Import the new DecryptPage
-import Header from "./components/Header";
+// import Header from "./components/Header"; // Removed Header import
 
 const queryClient = new QueryClient();
 
@@ -18,7 +18,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Header />
+        {/* <Header /> Removed Header component */}
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/encrypt" element={<EncryptPage />} /> {/* New route for Encryption */}
