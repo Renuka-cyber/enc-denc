@@ -11,14 +11,7 @@ const Index = () => {
         Welcome to Enc-Denc: Secure File & Image Tools
       </h1>
 
-      <Card className="w-full max-w-4xl mb-10 bg-warning border-warning-foreground/20 text-warning-foreground shadow-lg rounded-xl">
-        <CardContent className="p-4 flex items-center space-x-3">
-          <AlertTriangle className="h-6 w-6 flex-shrink-0 text-warning-foreground" />
-          <CardDescription className="text-sm font-medium text-warning-foreground">
-            <span className="font-bold">Important:</span> Always keep your passwords and keys safe. Lost credentials mean lost data.
-          </CardDescription>
-        </CardContent>
-      </Card>
+      {/* Removed the 'Important' notice card */}
 
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl justify-center">
         <Button asChild className="flex-1 max-w-xs h-auto py-4 text-lg bg-gradient-to-r from-primary to-accent text-primary-foreground hover:from-primary/90 hover:to-accent/90 transition-all duration-300 ease-in-out shadow-lg">
