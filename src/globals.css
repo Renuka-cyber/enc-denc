@@ -29,7 +29,7 @@
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 85%; /* Adjusted for better contrast */
     --ring: 220 50% 20%; /* Dark blue for focus glow */
 
     --radius: 0.75rem; /* Slightly more rounded corners */
@@ -73,7 +73,7 @@
     --destructive-foreground: 210 40% 98%;
 
     --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 25%; /* Adjusted for better contrast */
     --ring: 200 70% 50%; /* Medium blue for focus glow */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
