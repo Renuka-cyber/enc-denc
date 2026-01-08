@@ -8,7 +8,7 @@ import { Loader2, Lock, Unlock, ShieldCheck } from 'lucide-react';
 
 import { generateSalt, securityLog } from '@/utils/security';
 import { deriveKeyPBKDF2 } from '@/modules/KeyDerivation';
-import { generateDataEncryptionKey, deriveMasterKey, wrapDataKey, unwrapDataKey } from '@/modules/KeyManagement';
+import { generateDataEncryptionKey, deriveMasterKey, wrapDataKey, unwrapDataKey } => '@/modules/KeyManagement';
 import { packageMetadata, parseMetadata, ParsedMetadata } from '@/modules/Metadata';
 import { encryptFileStream } from '@/modules/EncryptionStream';
 import { decryptFileStream } from '@/modules/DecryptionStream';
