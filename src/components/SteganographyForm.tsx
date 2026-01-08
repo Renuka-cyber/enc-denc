@@ -139,7 +139,7 @@ export const SteganographyForm = ({ mode }: SteganographyFormProps) => {
       <CardContent className="space-y-6">
         <div className="space-y-2">
           <Label htmlFor={`image-file-${mode}`} className="text-foreground">Image Input / Upload</Label>
-          <Input id={`image-file-${mode}`} type="file" accept="image/png, image/jpeg" onChange={handleImageChange} className="file:bg-primary file:text-primary-foreground file:font-medium file:border-primary file:rounded-md file:mr-2 file:py-2 file:px-4 hover:file:bg-primary/90" />
+          <Input id={`image-file-${mode}`} type="file" accept="image/png, image/jpeg" onChange={handleImageChange} className="file:text-primary file:font-medium file:bg-muted file:border-muted-foreground/20 file:rounded-md file:mr-2 file:py-1 file:px-3 hover:file:bg-muted-foreground/10 transition-colors" />
           {imageFile && <p className="text-sm text-muted-foreground">Selected: {imageFile.name} ({Math.round(imageFile.size / 1024)} KB)</p>}
           <p className="text-xs text-muted-foreground">
             For best results, use PNG images. JPEG compression can corrupt hidden data.
