@@ -218,7 +218,7 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
       <CardContent className="space-y-6">
         <div className="space-y-2">
           <Label htmlFor="file" className="text-foreground">File Input / Upload</Label>
-          <Input id="file" type="file" onChange={handleFileChange} className="file:text-primary file:font-medium file:bg-muted file:border-muted-foreground/20 file:rounded-md file:mr-2 file:py-1 file:px-3 hover:file:bg-muted-foreground/10 transition-colors" />
+          <Input id="file" type="file" onChange={handleFileChange} className="file:bg-primary file:text-primary-foreground file:font-medium file:border-primary file:rounded-md file:mr-2 file:py-2 file:px-4 hover:file:bg-primary/90" />
           {file && <p className="text-sm text-muted-foreground">Selected: {file.name} ({Math.round(file.size / 1024 / 1024)} MB)</p>}
         </div>
 
