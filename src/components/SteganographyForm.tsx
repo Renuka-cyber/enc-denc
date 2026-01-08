@@ -45,7 +45,7 @@ export const SteganographyForm = ({ mode }: SteganographyFormProps) => {
     if (!imageFile || !textInput) {
       toast({
         title: 'Missing Inputs',
-        description: 'Please select an image and enter text to embed.',
+        description: 'Missing: Image, Text to embed.',
         variant: 'destructive',
       });
       return;
@@ -79,7 +79,7 @@ export const SteganographyForm = ({ mode }: SteganographyFormProps) => {
     if (!imageFile) {
       toast({
         title: 'Missing Image',
-        description: 'Please select an image to extract text from.',
+        description: 'Missing: Image.',
         variant: 'destructive',
       });
       return;

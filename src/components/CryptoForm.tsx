@@ -4,11 +4,11 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
-import { Loader2, Lock, Unlock, ShieldCheck } from 'lucide-react'; // Changed FileText to ShieldCheck
+import { Loader2, Lock, Unlock, ShieldCheck } from 'lucide-react';
 
 import { generateSalt, securityLog } from '@/utils/security';
 import { deriveKeyPBKDF2 } from '@/modules/KeyDerivation';
-import { generateDataEncryptionKey, deriveMasterKey, wrapDataKey, unwrapDataKey } from '@/modules/KeyManagement';
+import { generateDataEncryptionKey, deriveMasterKey, wrapDataKey, unwrapDataKey } => '@/modules/KeyManagement';
 import { packageMetadata, parseMetadata, ParsedMetadata } from '@/modules/Metadata';
 import { encryptFileStream } from '@/modules/EncryptionStream';
 import { decryptFileStream } from '@/modules/DecryptionStream';
@@ -55,7 +55,7 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
     if (!file || !password || !receiverEmail) {
       toast({
         title: 'Missing Inputs',
-        description: 'Please provide a file, password, and receiver email.',
+        description: 'Missing: File, Password, Receiver Email.',
         variant: 'destructive',
       });
       return;
@@ -125,7 +125,7 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
     if (!file || !password || !receiverEmail) {
       toast({
         title: 'Missing Inputs',
-        description: 'Please provide the encrypted file, password, and receiver email.',
+        description: 'Missing: Encrypted File, Password, Receiver Email.',
         variant: 'destructive',
       });
       return;
@@ -211,7 +211,7 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
     <Card className="w-full mx-auto shadow-xl rounded-xl border-border/50 dark:border-border/30">
       <CardHeader className="pb-4">
         <CardTitle className="flex items-center text-primary dark:text-primary-foreground">
-          <ShieldCheck className="mr-3 h-7 w-7 text-secondary dark:text-accent" /> {/* Cybersecurity shield icon */}
+          <ShieldCheck className="mr-3 h-7 w-7 text-secondary dark:text-accent" />
           {title}
         </CardTitle>
       </CardHeader>
