@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ShieldCheck, Image as ImageIcon } from 'lucide-react';
+import { ShieldCheck, Image as ImageIcon, Lock, Unlock } from 'lucide-react';
 
 const Header = () => {
   const location = useLocation();
@@ -14,7 +14,19 @@ const Header = () => {
         <Button asChild variant={location.pathname === '/' ? 'default' : 'ghost'}>
           <Link to="/" className="flex items-center">
             <ShieldCheck className="mr-2 h-4 w-4" />
-            Encryption
+            Home
+          </Link>
+        </Button>
+        <Button asChild variant={location.pathname === '/encrypt' ? 'default' : 'ghost'}>
+          <Link to="/encrypt" className="flex items-center">
+            <Lock className="mr-2 h-4 w-4" />
+            Encrypt
+          </Link>
+        </Button>
+        <Button asChild variant={location.pathname === '/decrypt' ? 'default' : 'ghost'}>
+          <Link to="/decrypt" className="flex items-center">
+            <Unlock className="mr-2 h-4 w-4" />
+            Decrypt
           </Link>
         </Button>
         <Button asChild variant={location.pathname === '/steganography' ? 'default' : 'ghost'}>
