@@ -18,18 +18,19 @@ const DecryptPage = () => {
           Argon2id + AES-256-GCM Hybrid Decryption System
         </p>
 
-        <Card className="w-full max-w-4xl mb-10 bg-warning border-warning-foreground/20 text-warning-foreground shadow-lg rounded-xl">
-          <CardContent className="p-4 flex items-center space-x-3">
-            <AlertTriangle className="h-6 w-6 flex-shrink-0 text-warning-foreground" />
-            <CardDescription className="text-sm font-medium text-warning-foreground">
-              <span className="font-bold">Important:</span> Please keep your password and receiver email in a safe place. If lost, you will not be able to decrypt (recover) your file(s).
-            </CardDescription>
-          </CardContent>
-        </Card>
-
         <div className="w-full max-w-2xl">
           <CryptoForm defaultMode="decrypt" />
         </div>
+
+        {/* Moved below CryptoForm and restyled */}
+        <Card className="w-full max-w-4xl mt-8 bg-info border-info-foreground/20 text-info-foreground shadow-lg rounded-xl py-2">
+          <CardContent className="p-3 flex items-center space-x-3">
+            <AlertTriangle className="h-5 w-5 flex-shrink-0 text-info-foreground" />
+            <CardDescription className="text-sm font-medium text-info-foreground">
+              ⚠️ Decryption requires the same password and email used during encryption.
+            </CardDescription>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
