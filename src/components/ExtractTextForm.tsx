@@ -70,12 +70,12 @@ export const ExtractTextForm = () => {
           Extract Text from Image
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4"> {/* Changed space-y-6 to space-y-4 */}
+      <CardContent className="space-y-3"> {/* Changed space-y-4 to space-y-3 */}
         <div className="space-y-2">
           <Label htmlFor="extract-image-file" className="text-foreground">Image Input / Upload</Label>
           <Input id="extract-image-file" type="file" accept="image/png, image/jpeg" onChange={handleImageChange} className="file:text-primary file:font-medium file:bg-muted file:border-muted-foreground/20 file:rounded-md file:mr-2 file:py-1 file:px-3 hover:file:bg-muted-foreground/10 transition-colors" />
           {imageFile && <p className="text-sm text-muted-foreground">Selected: {imageFile.name} ({Math.round(imageFile.size / 1024)} KB)</p>}
-          <p className="text-xs text-muted-foreground">
+          <p className="text-xs text-muted-foreground mt-1"> {/* Added mt-1 */}
             For best results, use PNG images. JPEG compression can corrupt hidden data.
           </p>
         </div>
@@ -93,7 +93,7 @@ export const ExtractTextForm = () => {
           {extractedText && (
             <Button
               onClick={() => navigator.clipboard.writeText(extractedText)}
-              className="w-full mt-2"
+              className="w-full mt-1" {/* Changed mt-2 to mt-1 */}
               variant="secondary"
             >
               Copy Extracted Text
