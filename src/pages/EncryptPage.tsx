@@ -18,11 +18,11 @@ const EncryptPage = () => {
           Argon2id + AES-256-GCM Hybrid Encryption System
         </p>
 
-        <Card className="w-full max-w-4xl mb-10 bg-warning border-warning-foreground/20 text-warning-foreground shadow-lg rounded-xl">
-          <CardContent className="p-4 flex items-center space-x-3">
-            <AlertTriangle className="h-6 w-6 flex-shrink-0 text-warning-foreground" />
+        <Card className="w-full max-w-4xl mb-10 bg-warning border-warning-foreground/20 text-warning-foreground shadow-lg rounded-xl py-2">
+          <CardContent className="p-3 flex items-center space-x-3">
+            <AlertTriangle className="h-5 w-5 flex-shrink-0 text-warning-foreground" />
             <CardDescription className="text-sm font-medium text-warning-foreground">
-              <span className="font-bold">Important:</span> Please keep your password and receiver email in a safe place. If lost, you will not be able to decrypt (recover) your file(s).
+              Your password and receiver email are required to decrypt this file. We do not store them.
             </CardDescription>
           </CardContent>
         </Card>
