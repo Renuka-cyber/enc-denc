@@ -14,7 +14,7 @@ const DecryptPage = () => {
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-center text-primary dark:text-primary-foreground leading-tight">
           Decrypt a File
         </h1>
-        <p className="text-lg text-muted-foreground mb-8 text-center max-w-2xl">
+        <p className="text-lg text-muted-foreground mb-6 text-center max-w-2xl"> {/* Reduced mb-8 to mb-6 */}
           Argon2id + AES-256-GCM Hybrid Decryption System
         </p>
 
@@ -23,7 +23,7 @@ const DecryptPage = () => {
         </div>
 
         {/* Moved below CryptoForm and restyled */}
-        <Card className="w-full max-w-4xl mt-8 bg-info border-info-foreground/20 text-info-foreground shadow-lg rounded-xl py-2">
+        <Card className="w-full max-w-4xl mt-6 bg-info border-info-foreground/20 text-info-foreground shadow-lg rounded-xl py-2"> {/* Reduced mt-8 to mt-6 */}
           <CardContent className="p-3 flex items-center space-x-3">
             <AlertTriangle className="h-5 w-5 flex-shrink-0 text-info-foreground" />
             <CardDescription className="text-sm font-medium text-info-foreground">
