@@ -11,7 +11,7 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="w-full bg-card shadow-sm border-b border-border/50 dark:border-border/30 py-4 px-6 flex justify-center sticky top-0 z-50">
+    <header className="w-full bg-card shadow-sm border-b border-border/30 dark:border-border/15 py-4 px-6 flex justify-center sticky top-0 z-50">
       <nav className="flex space-x-4 max-w-4xl w-full">
         <Button asChild variant={isActive('/') ? 'default' : 'ghost'}>
           <Link to="/" className="flex items-center">
