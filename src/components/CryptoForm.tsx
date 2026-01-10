@@ -1,11 +1,14 @@
+"use client";
+
 import React, { useState, useCallback, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
-import { Loader2, Lock, Unlock, ShieldCheck } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom'; // Import useNavigate and useLocation
+import { Loader2, Lock, Unlock, ShieldCheck, Eye, EyeOff } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Badge } from '@/components/ui/badge'; // Import Badge component
 
 import { generateSalt, securityLog } from '@/utils/security';
 import { deriveKeyPBKDF2 } from '@/modules/KeyDerivation';
@@ -19,24 +22,49 @@ const ENCRYPTED_FILE_EXTENSION = '.dyadenc';
 const MIN_PASSWORD_LENGTH = 7; // Define minimum password length
 
 type Mode = 'encrypt' | 'decrypt';
+type PasswordStrength = 'none' | 'weak' | 'medium' | 'strong';
 
 interface CryptoFormProps {
   defaultMode?: Mode;
 }
 
+// Function to evaluate password strength
+const getPasswordStrength = (password: string): PasswordStrength => {
+  if (password.length < MIN_PASSWORD_LENGTH) {
+    return 'none'; // Or 'weak' if you want to show it even below min length
+  }
+
+  let score = 0;
+  if (password.length >= MIN_PASSWORD_LENGTH) score++;
+  if (/[A-Z]/.test(password)) score++;
+  if (/[a-z]/.test(password)) score++;
+  if (/[0-9]/.test(password)) score++;
+  if (/[^A-Za-z0-9]/.test(password)) score++; // Special characters
+
+  if (score < 3) return 'weak';
+  if (score < 5) return 'medium';
+  return 'strong';
+};
+
 export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
   const { toast } = useToast();
-  const navigate = useNavigate(); // Initialize useNavigate
-  const location = useLocation(); // Initialize useLocation
+  const navigate = useNavigate();
+  const location = useLocation();
   const [mode, setMode] = useState<Mode>(defaultMode);
   const [file, setFile] = useState<File | null>(null);
   const [password, setPassword] = useState('');
   const [receiverEmail, setReceiverEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State for password visibility
+  const [passwordStrength, setPasswordStrength] = useState<PasswordStrength>('none'); // State for password strength
 
   useEffect(() => {
     setMode(defaultMode);
   }, [defaultMode]);
+
+  useEffect(() => {
+    setPasswordStrength(getPasswordStrength(password));
+  }, [password]);
 
   const getMissingInputsMessage = () => {
     const missing: string[] = [];
@@ -240,6 +268,24 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
 
   const title = mode === 'encrypt' ? 'Encrypt a File' : 'Decrypt a File';
 
+  const getStrengthBadgeVariant = (strength: PasswordStrength) => {
+    switch (strength) {
+      case 'weak': return 'destructive';
+      case 'medium': return 'warning';
+      case 'strong': return 'default'; // Or a custom success variant
+      default: return 'secondary';
+    }
+  };
+
+  const getStrengthBadgeText = (strength: PasswordStrength) => {
+    switch (strength) {
+      case 'weak': return 'Weak';
+      case 'medium': return 'Medium';
+      case 'strong': return 'Strong';
+      default: return 'Enter password';
+    }
+  };
+
   return (
     <Card className="w-full mx-auto shadow-xl rounded-xl border-border/50 dark:border-border/30">
       <CardHeader className="pb-4">
@@ -257,14 +303,30 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
 
         <div className="space-y-2">
           <Label htmlFor="password" className="text-foreground">Password Input</Label>
-          <Input
-            id="password"
-            type="password"
-            placeholder={`Enter strong password (min ${MIN_PASSWORD_LENGTH} chars)`}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="focus-visible:ring-ring focus-visible:ring-offset-2"
-          />
+          <div className="relative flex items-center">
+            <Input
+              id="password"
+              type={showPassword ? 'text' : 'password'}
+              placeholder={`Enter strong password (min ${MIN_PASSWORD_LENGTH} chars)`}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="pr-10 focus-visible:ring-ring focus-visible:ring-offset-2"
+            />
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="absolute right-0 top-0 h-full px-3 py-1 text-muted-foreground hover:bg-transparent"
+              onClick={() => setShowPassword((prev) => !prev)}
+            >
+              {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+            </Button>
+          </div>
+          {password.length > 0 && passwordStrength !== 'none' && (
+            <Badge variant={getStrengthBadgeVariant(passwordStrength)} className="mt-2">
+              Strength: {getStrengthBadgeText(passwordStrength)}
+            </Badge>
+          )}
         </div>
 
         <div className="space-y-2">
