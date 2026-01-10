@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ShieldCheck, Lock, Unlock, Eye, EyeOff } from 'lucide-react'; // Import Eye and EyeOff
+import { ShieldCheck, Lock, Unlock, Eye, EyeOff } from 'lucide-react';
 
 const Header = () => {
   const location = useLocation();
@@ -31,15 +31,14 @@ const Header = () => {
             Decryption
           </Link>
         </Button>
-        {/* New buttons for Steganography sections */}
-        <Button asChild variant={isActive('/steganography') ? 'default' : 'ghost'}>
-          <Link to="/steganography" className="flex items-center">
+        <Button asChild variant={isActive('/steganography/embed') ? 'default' : 'ghost'}>
+          <Link to="/steganography/embed" className="flex items-center">
             <Eye className="mr-2 h-4 w-4" />
             Embed Text
           </Link>
         </Button>
-        <Button asChild variant={isActive('/steganography') ? 'default' : 'ghost'}>
-          <Link to="/steganography" className="flex items-center">
+        <Button asChild variant={isActive('/steganography/extract') ? 'default' : 'ghost'}>
+          <Link to="/steganography/extract" className="flex items-center">
             <EyeOff className="mr-2 h-4 w-4" />
             Extract Text
           </Link>

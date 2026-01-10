@@ -2,13 +2,13 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"; // Import Navigate
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import SteganographyPage from "./pages/SteganographyPage";
-import EncryptPage from "./pages/EncryptPage"; // Import the new EncryptPage
-import DecryptPage from "./pages/DecryptPage"; // Import the new DecryptPage
-// import Header from "./components/Header"; // Removed Header import
+import EncryptPage from "./pages/EncryptPage";
+import DecryptPage from "./pages/DecryptPage";
+import EmbedTextPage from "./pages/EmbedTextPage"; // Import the new EmbedTextPage
+import ExtractTextPage from "./pages/ExtractTextPage"; // Import the new ExtractTextPage
 
 const queryClient = new QueryClient();
 
@@ -18,12 +18,14 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        {/* <Header /> Removed Header component */}
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/encrypt" element={<EncryptPage />} /> {/* New route for Encryption */}
-          <Route path="/decrypt" element={<DecryptPage />} /> {/* New route for Decryption */}
-          <Route path="/steganography" element={<SteganographyPage />} />
+          <Route path="/encrypt" element={<EncryptPage />} />
+          <Route path="/decrypt" element={<DecryptPage />} />
+          {/* New routes for Steganography */}
+          <Route path="/steganography" element={<Navigate to="/steganography/embed" replace />} /> {/* Redirect old path */}
+          <Route path="/steganography/embed" element={<EmbedTextPage />} />
+          <Route path="/steganography/extract" element={<ExtractTextPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,0 +1,29 @@
+"use client";
+
+import React from 'react';
+import { EmbedTextForm } from '@/components/EmbedTextForm';
+import Header from '@/components/Header';
+
+const EmbedTextPage = () => {
+  return (
+    <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
+      <Header />
+      <div className="flex flex-col items-center justify-center p-4 sm:p-8 flex-grow">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-center text-primary dark:text-primary-foreground leading-tight">
+          Embed Text in Image
+        </h1>
+        <p className="text-lg text-muted-foreground mb-8 text-center max-w-2xl">
+          Hide your secret message within an image file.
+        </p>
+        <div className="w-full max-w-2xl">
+          <EmbedTextForm />
+        </div>
+        <p className="text-sm text-muted-foreground mt-8 text-center max-w-md">
+          For best results, use PNG images. JPEG compression can corrupt hidden data.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default EmbedTextPage;
