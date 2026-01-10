@@ -330,7 +330,7 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="email" className="text-foreground">Receiver Email ID (Access Control)</Label>
+          <Label htmlFor="email" className="text-foreground">Receiver Email (Required for Decryption)</Label>
           <Input
             id="email"
             type="email"
@@ -340,7 +340,7 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
             className="focus-visible:ring-ring focus-visible:ring-offset-2"
           />
           <p className="text-xs text-muted-foreground">
-            Both the password and this email are required for decryption.
+            This email will be verified during decryption.
           </p>
         </div>
 
