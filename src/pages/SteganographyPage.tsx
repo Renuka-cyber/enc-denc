@@ -1,14 +1,15 @@
 "use client";
 
 import React from 'react';
-import { SteganographyForm } from '@/components/SteganographyForm';
-import Header from '@/components/Header'; // Import Header
+import { EmbedTextForm } from '@/components/EmbedTextForm'; // Import the new EmbedTextForm
+import { ExtractTextForm } from '@/components/ExtractTextForm'; // Import the new ExtractTextForm
+import Header from '@/components/Header';
 
 const SteganographyPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
-      <Header /> {/* Add Header here */}
-      <div className="flex flex-col items-center justify-center p-4 sm:p-8 flex-grow"> {/* Added flex-grow to push content down */}
+      <Header />
+      <div className="flex flex-col items-center justify-center p-4 sm:p-8 flex-grow">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-center text-primary dark:text-primary-foreground leading-tight">
           Steganography Tool
         </h1>
@@ -18,10 +19,10 @@ const SteganographyPage = () => {
 
         <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl">
           <div className="flex-1">
-            <SteganographyForm mode="embed" />
+            <EmbedTextForm /> {/* Use the new EmbedTextForm */}
           </div>
           <div className="flex-1">
-            <SteganographyForm mode="extract" />
+            <ExtractTextForm /> {/* Use the new ExtractTextForm */}
           </div>
         </div>
 
