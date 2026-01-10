@@ -27,7 +27,7 @@ const DecryptPage = () => {
           <CardContent className="p-3 flex items-center space-x-3">
             <AlertTriangle className="h-5 w-5 flex-shrink-0 text-info-foreground" />
             <CardDescription className="text-sm font-medium text-info-foreground">
-              ⚠️ Decryption requires the same password and email used during encryption.
+              Decryption requires the same password and email used during encryption.
             </CardDescription>
           </CardContent>
         </Card>
