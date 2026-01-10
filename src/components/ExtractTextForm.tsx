@@ -70,7 +70,7 @@ export const ExtractTextForm = () => {
           Extract Text from Image
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-6">
+      <CardContent className="space-y-4"> {/* Changed space-y-6 to space-y-4 */}
         <div className="space-y-2">
           <Label htmlFor="extract-image-file" className="text-foreground">Image Input / Upload</Label>
           <Input id="extract-image-file" type="file" accept="image/png, image/jpeg" onChange={handleImageChange} className="file:text-primary file:font-medium file:bg-muted file:border-muted-foreground/20 file:rounded-md file:mr-2 file:py-1 file:px-3 hover:file:bg-muted-foreground/10 transition-colors" />

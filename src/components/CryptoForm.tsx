@@ -385,7 +385,7 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
   );
 
   const renderEncryptionResults = () => (
-    <div className="text-center space-y-4 py-4"> {/* Reduced py-8 to py-4, space-y-6 to space-y-4 */}
+    <div className="text-center space-y-3 py-3"> {/* Reduced py-4 to py-3, space-y-4 to space-y-3 */}
       {isEncryptingProcess ? (
         <>
           <Loader2 className="h-16 w-16 text-primary animate-spin mx-auto" />
@@ -404,7 +404,7 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
               <span className="font-medium text-foreground">Size:</span> {formatFileSize(encryptionSuccessDetails.encryptedFileSize)}
             </p>
           </div>
-          <div className="flex flex-col space-y-2 mt-4"> {/* Reduced space-y-3 to space-y-2, mt-6 to mt-4 */}
+          <div className="flex flex-col space-y-1 mt-3"> {/* Reduced space-y-2 to space-y-1, mt-4 to mt-3 */}
             <Button
               onClick={() => downloadFile(encryptionSuccessDetails.encryptedFileBlob, encryptionSuccessDetails.encryptedFileName)}
               className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground hover:from-primary/90 hover:to-accent/90 transition-all duration-300 ease-in-out shadow-lg"
@@ -436,7 +436,7 @@ export const CryptoForm = ({ defaultMode = 'encrypt' }: CryptoFormProps) => {
           {title}
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4"> {/* Reduced space-y-6 to space-y-4 */}
+      <CardContent className="space-y-4">
         {mode === 'encrypt' && (isEncryptingProcess || encryptionSuccessDetails) ? (
           renderEncryptionResults()
         ) : (
