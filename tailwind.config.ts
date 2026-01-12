@@ -72,6 +72,37 @@ export default {
           DEFAULT: "hsl(var(--info))",
           foreground: "hsl(var(--info-foreground))",
         },
+        // Custom button colors for Index page
+        encryptButton: {
+          DEFAULT: "hsl(210 80% 60%)", // Light Blue
+          foreground: "hsl(0 0% 98%)",
+          hover: "hsl(210 80% 50%)",
+          dark: {
+            DEFAULT: "hsl(210 80% 40%)",
+            foreground: "hsl(0 0% 98%)",
+            hover: "hsl(210 80% 30%)",
+          },
+        },
+        decryptButton: {
+          DEFAULT: "hsl(140 70% 40%)", // Green
+          foreground: "hsl(0 0% 98%)",
+          hover: "hsl(140 70% 30%)",
+          dark: {
+            DEFAULT: "hsl(140 70% 30%)",
+            foreground: "hsl(0 0% 98%)",
+            hover: "hsl(140 70% 20%)",
+          },
+        },
+        steganographyButton: {
+          DEFAULT: "hsl(270 60% 50%)", // Purple
+          foreground: "hsl(0 0% 98%)",
+          hover: "hsl(270 60% 40%)",
+          dark: {
+            DEFAULT: "hsl(270 60% 40%)",
+            foreground: "hsl(0 0% 98%)",
+            hover: "hsl(270 60% 30%)",
+          },
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -48,6 +48,14 @@
 
     --info: 210 80% 95%; /* Very light blue */
     --info-foreground: 210 80% 30%; /* Darker blue for text */
+
+    /* Custom button colors for Index page - Light Mode */
+    --encryptButton: 210 80% 60%;
+    --encryptButton-foreground: 0 0% 98%;
+    --decryptButton: 140 70% 40%;
+    --decryptButton-foreground: 0 0% 98%;
+    --steganographyButton: 270 60% 50%;
+    --steganographyButton-foreground: 0 0% 98%;
   }
 
   .dark {
@@ -92,6 +100,14 @@
 
     --info: 210 80% 20%; /* Dark blue */
     --info-foreground: 210 80% 85%; /* Light blue for text */
+
+    /* Custom button colors for Index page - Dark Mode */
+    --encryptButton: 210 80% 40%;
+    --encryptButton-foreground: 0 0% 98%;
+    --decryptButton: 140 70% 30%;
+    --decryptButton-foreground: 0 0% 98%;
+    --steganographyButton: 270 60% 40%;
+    --steganographyButton-foreground: 0 0% 98%;
   }
 }
 

@@ -16,24 +16,24 @@ const Index = () => {
 
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl justify-center items-stretch">
         <Button asChild className="flex-1 max-w-xs h-auto py-4 text-lg
-          bg-primary text-primary-foreground border border-primary/70 shadow-sm
-          hover:bg-primary/80 cursor-pointer">
+          bg-encryptButton text-encryptButton-foreground border border-encryptButton/70 shadow-sm
+          hover:bg-encryptButton-hover dark:bg-encryptButton-dark dark:hover:bg-encryptButton-dark-hover cursor-pointer">
           <Link to="/encrypt" className="flex items-center justify-center">
             <Lock className="mr-3 h-6 w-6" />
             Encrypt Files
           </Link>
         </Button>
         <Button asChild className="flex-1 max-w-xs h-auto py-4 text-lg
-          bg-primary text-primary-foreground border border-primary/70 shadow-sm
-          hover:bg-primary/80 cursor-pointer">
+          bg-decryptButton text-decryptButton-foreground border border-decryptButton/70 shadow-sm
+          hover:bg-decryptButton-hover dark:bg-decryptButton-dark dark:hover:bg-decryptButton-dark-hover cursor-pointer">
           <Link to="/decrypt" className="flex items-center justify-center">
             <Unlock className="mr-3 h-6 w-6" />
             Decrypt Files
           </Link>
         </Button>
         <Button asChild className="flex-1 max-w-xs h-auto py-4 text-lg
-          bg-primary text-primary-foreground border border-primary/70 shadow-sm
-          hover:bg-primary/80 cursor-pointer">
+          bg-steganographyButton text-steganographyButton-foreground border border-steganographyButton/70 shadow-sm
+          hover:bg-steganographyButton-hover dark:bg-steganographyButton-dark dark:hover:bg-steganographyButton-dark-hover cursor-pointer">
           <Link to="/steganography/embed" className="flex items-center justify-center">
             <ImageIcon className="mr-3 h-6 w-6" />
             Steganography
