@@ -4,6 +4,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ShieldCheck, Lock, Unlock, Eye, EyeOff } from 'lucide-react';
+import { ThemeToggle } from './ThemeToggle'; // Import ThemeToggle
 
 const Header = () => {
   const location = useLocation();
@@ -12,7 +13,7 @@ const Header = () => {
 
   return (
     <header className="w-full bg-card shadow-sm border-b border-border/30 dark:border-border/15 py-4 px-6 flex justify-center sticky top-0 z-50">
-      <nav className="flex space-x-4 max-w-4xl w-full">
+      <nav className="flex items-center space-x-4 max-w-4xl w-full"> {/* Added items-center */}
         <Button asChild variant={isActive('/') ? 'default' : 'ghost'}>
           <Link to="/" className="flex items-center">
             <ShieldCheck className="mr-2 h-4 w-4" />
@@ -43,6 +44,9 @@ const Header = () => {
             Extract Text
           </Link>
         </Button>
+        <div className="ml-auto"> {/* Pushes the ThemeToggle to the right */}
+          <ThemeToggle />
+        </div>
       </nav>
     </header>
   );
