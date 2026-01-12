@@ -11,7 +11,7 @@ const Index = () => {
         HESS
       </h1>
       <p className="text-xl md:text-2xl text-muted-foreground mb-12 text-center max-w-2xl">
-        Secure File Encryption & Image Steganography
+        Hybrid Encryption & Steganography System
       </p>
 
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl justify-center items-stretch">
