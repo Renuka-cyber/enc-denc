@@ -8,7 +8,7 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 p-4 sm:p-8">
       <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-center text-primary dark:text-primary-foreground leading-tight">
-        Enc-Denc
+        HESS
       </h1>
       <p className="text-xl md:text-2xl text-muted-foreground mb-12 text-center max-w-2xl">
         Secure File Encryption & Image Steganography
