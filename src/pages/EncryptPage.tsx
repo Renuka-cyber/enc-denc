@@ -8,7 +8,7 @@ import Header from '@/components/Header'; // Import Header
 
 const EncryptPage = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
+    <div className="min-h-screen flex flex-col items-center bg-background text-foreground">
       <Header /> {/* Add Header here */}
       <div className="flex flex-col items-center justify-center p-4 sm:p-8 flex-grow"> {/* Added flex-grow to push content down */}
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-center text-primary dark:text-primary-foreground leading-tight">

@@ -52,84 +52,35 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
-        // Custom warning color
-        warning: {
-          DEFAULT: "hsl(var(--warning))",
-          foreground: "hsl(var(--warning-foreground))",
-        },
-        // New info color
-        info: {
-          DEFAULT: "hsl(var(--info))",
-          foreground: "hsl(var(--info-foreground))",
-        },
-        // Custom button colors for Index page
-        encryptButton: {
-          DEFAULT: "hsl(210 80% 60%)", // Light Blue
-          foreground: "hsl(0 0% 98%)",
-          hover: "hsl(210 80% 50%)",
-          dark: {
-            DEFAULT: "hsl(210 80% 40%)",
-            foreground: "hsl(0 0% 98%)",
-            hover: "hsl(210 80% 30%)",
-          },
-        },
-        decryptButton: {
-          DEFAULT: "hsl(140 70% 40%)", // Green
-          foreground: "hsl(0 0% 98%)",
-          hover: "hsl(140 70% 30%)",
-          dark: {
-            DEFAULT: "hsl(140 70% 30%)",
-            foreground: "hsl(0 0% 98%)",
-            hover: "hsl(140 70% 20%)",
-          },
-        },
-        steganographyButton: {
-          DEFAULT: "hsl(270 60% 50%)", // Purple
-          foreground: "hsl(0 0% 98%)",
-          hover: "hsl(270 60% 40%)",
-          dark: {
-            DEFAULT: "hsl(270 60% 40%)",
-            foreground: "hsl(0 0% 98%)",
-            hover: "hsl(270 60% 30%)",
-          },
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        "neon-cyan": "0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.3)",
+        "neon-purple": "0 0 10px rgba(188, 19, 254, 0.5), 0 0 20px rgba(188, 19, 254, 0.3)",
+        "neon-blue": "0 0 10px rgba(41, 121, 255, 0.5), 0 0 20px rgba(41, 121, 255, 0.3)",
+      },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "pulse-glow": "pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
     },
   },
